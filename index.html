@@ -417,13 +417,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
 
 /* Cookie banner */
 .cookie-banner{
-  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:300;
+  position:fixed;bottom:20px;right:20px;left:auto;transform:none;z-index:300;
   background:var(--navy3);border:0.5px solid var(--wborder);border-radius:14px;
-  padding:16px 20px;max-width:520px;width:calc(100% - 40px);
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:14px 18px;max-width:340px;width:calc(100% - 40px);
+  display:flex;flex-direction:column;gap:12px;
   transition:opacity 0.3s,transform 0.3s;
 }
-.cookie-banner.hidden{opacity:0;transform:translateX(-50%) translateY(20px);pointer-events:none}
+.cookie-banner.hidden{opacity:0;transform:translateY(20px);pointer-events:none}
 .cookie-text{flex:1;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5;min-width:200px}
 .cookie-text a{color:var(--amber2);text-decoration:none}
 .cookie-btns{display:flex;gap:8px;flex-shrink:0}
@@ -934,7 +934,27 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
 
   /* ── EMAIL VALIDATION & FORM INTERCEPT ── */
   function validateEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
+  }
+
+  function showEmailError(emailEl, msg) {
+    var existing = emailEl.parentNode.querySelector('.email-error');
+    if (existing) existing.remove();
+    emailEl.style.outline = '1.5px solid #E24B4A';
+    emailEl.setAttribute('aria-invalid', 'true');
+    var err = document.createElement('p');
+    err.className = 'email-error';
+    err.style.cssText = 'font-size:12px;color:#F09595;margin-top:7px;padding-left:2px';
+    err.textContent = msg;
+    emailEl.closest('form').insertAdjacentElement('afterend', err);
+    emailEl.focus();
+  }
+
+  function clearEmailError(emailEl) {
+    emailEl.style.outline = '';
+    emailEl.setAttribute('aria-invalid', 'false');
+    var existing = emailEl.closest('form').parentNode.querySelector('.email-error');
+    if (existing) existing.remove();
   }
 
   function handleFormSubmit(formId, emailId, successId, shareId) {
@@ -947,33 +967,40 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var email = emailEl.value.trim();
-      if (!validateEmail(email)) {
-        emailEl.style.outline = '1px solid #E24B4A';
-        emailEl.setAttribute('aria-invalid', 'true');
-        emailEl.focus();
-        setTimeout(function () {
-          emailEl.style.outline = '';
-          emailEl.setAttribute('aria-invalid', 'false');
-        }, 2000);
+
+      if (!email) {
+        showEmailError(emailEl, 'Please enter your email address.');
         return;
       }
+      if (!validateEmail(email)) {
+        showEmailError(emailEl, 'Please enter a valid email address.');
+        return;
+      }
+      clearEmailError(emailEl);
 
-      /* Send to Formspree (or swap for your own endpoint) */
+      /* Disable button to prevent double submit */
+      var btn = form.querySelector('button[type=submit]');
+      var origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      /* Send to Formspree then redirect to success page */
       fetch(form.action, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({ email: email, source: form.querySelector('[name=source]').value })
-      }).then(function (res) {
+      }).then(function(res) {
         if (res.ok) {
-          form.style.display = 'none';
-          success.style.display = 'block';
-          if (share) share.style.display = 'block';
+          window.location.href = './success.html';
         } else {
-          /* Graceful fallback: native POST to Formspree */
-          form.submit();
+          btn.disabled = false;
+          btn.textContent = origText;
+          showEmailError(emailEl, 'Something went wrong. Please try again.');
         }
-      }).catch(function () {
-        form.submit();
+      }).catch(function() {
+        btn.disabled = false;
+        btn.textContent = origText;
+        showEmailError(emailEl, 'No connection. Please check your internet and try again.');
       });
     });
 
@@ -1035,7 +1062,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
         revObs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
   reveals.forEach(function (el) { revObs.observe(el); });
 
   /* ── COUNTER ANIMATION ── */
