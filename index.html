@@ -462,7 +462,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
   <div class="faq-inner">
     <div class="section-eyebrow reveal" aria-hidden="true">Questions</div>
     <h2 class="section-h2 reveal reveal-d1" id="faq-heading">Things parents<br><em>always ask</em></h2>
-    <p class="section-sub reveal reveal-d2">If your question isn&rsquo;t here, <a href="mailto:hello&#64;talebuzzer.com" style="color:var(--amber2);text-decoration:none">email us directly</a>.</p>
+    <p class="section-sub reveal reveal-d2">If your question isn&rsquo;t here, <a href="/cdn-cgi/l/email-protection#93fbf6fffffcb5b0a5a7a8e7f2fff6f1e6e9e9f6e1bdf0fcfe" style="color:var(--amber2);text-decoration:none">email us directly</a>.</p>
     <div class="faq-list reveal" role="list">
       <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-1" data-faq="faq-a-1">Is my child&rsquo;s data safe? Who can see what TaleBuzzer generates?<div class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5l4 4 4-4"/></svg></div></button><div class="faq-a" id="faq-a-1" role="region"><p>Your child&rsquo;s name and details are only used to generate their story and are never shared with third parties. We store no child email addresses and child analytics are anonymised. Full details in our <a href="./privacy.html">privacy policy</a>.</p></div></div>
       <div class="faq-item" role="listitem"><button class="faq-q" aria-expanded="false" aria-controls="faq-a-2" data-faq="faq-a-2">Can I read the story before my child sees it?<div class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5l4 4 4-4"/></svg></div></button><div class="faq-a" id="faq-a-2" role="region"><p>Yes. Every story is generated in the parent account first. You can read it, rate it, or request a free regeneration before it appears in your child&rsquo;s library. Parents are always in control.</p></div></div>
@@ -531,8 +531,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
     <div>
       <div class="footer-col-title">Contact</div>
       <ul class="footer-links-col">
-        <li><a href="mailto:hello&#64;talebuzzer.com">hello&#64;talebuzzer.com</a></li>
-        <li><a href="mailto:schools&#64;talebuzzer.com">schools&#64;talebuzzer.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#c4aca1a8a8abe2e7f2f0ffb0a5a8a1a6b1bebea1b6eaa7aba9">hello&#64;talebuzzer.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#93e0f0fbfcfcffe0b5b0a5a7a8e7f2fff6f1e6e9e9f6e1bdf0fcfe">schools&#64;talebuzzer.com</a></li>
       </ul>
     </div>
   </div>
@@ -546,7 +546,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
 'use strict';
 var cb=document.getElementById('cookie-banner');
@@ -672,7 +672,7 @@ var cObs=new IntersectionObserver(function(entries){
       function step(now){
         var p=Math.min((now-start)/1800,1);
         var e=1-Math.pow(1-p,3);
-        el.textContent=Math.round(e*target).toLocaleString('en-GB');
+        el.textContent=Math.round(e*target);
         if(p<1)requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
@@ -681,7 +681,7 @@ var cObs=new IntersectionObserver(function(entries){
   });
 },{threshold:0.5});
 cEls.forEach(function(el){cObs.observe(el);});
-}());
 </script>
+<script src="./cookie-banner.js"></script>
 </body>
 </html>
