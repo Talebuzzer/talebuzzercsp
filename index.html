@@ -222,13 +222,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
 .footer-legal{display:flex;gap:20px}
 .footer-legal a{font-size:12px;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.2s}
 .footer-legal a:hover{color:rgba(255,255,255,0.45)}
-.cookie-banner{position:fixed;bottom:20px;right:20px;z-index:300;background:var(--navy3);border:0.5px solid var(--wborder);border-radius:14px;padding:14px 18px;max-width:340px;width:calc(100% - 40px);display:flex;flex-direction:column;gap:12px;transition:opacity 0.3s,transform 0.3s}
-.cookie-banner.hidden{opacity:0;transform:translateY(20px);pointer-events:none}
-.cookie-text{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.5}
-.cookie-text a{color:var(--amber2);text-decoration:none}
-.cookie-btns{display:flex;gap:8px}
-.cookie-accept{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;background:var(--amber);color:#412402;border:none;border-radius:7px;padding:8px 16px;cursor:pointer}
-.cookie-decline{font-family:'DM Sans',sans-serif;font-size:12px;color:rgba(255,255,255,0.35);background:none;border:0.5px solid var(--wborder);border-radius:7px;padding:8px 14px;cursor:pointer}
 .mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;z-index:190;background:rgba(13,20,32,0.97);border-bottom:0.5px solid var(--wborder);padding:20px 5%;flex-direction:column;gap:4px;backdrop-filter:blur(20px)}
 .mobile-nav.open{display:flex}
 .mobile-nav a{font-size:15px;color:rgba(255,255,255,0.65);text-decoration:none;padding:11px 4px;border-bottom:0.5px solid var(--wborder)}
@@ -269,12 +262,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
   .feat{padding:28px 24px}
   .faq-q{padding:18px}
   .faq-a.open{padding:0 18px 16px}
-  .cookie-banner{right:10px;left:10px;width:auto;max-width:none}
 }
 </style>
 </head>
 <body>
-
 
 <nav class="nav" id="nav" aria-label="Main navigation">
   <a class="nav-logo" href="/" aria-label="TaleBuzzer home">
@@ -664,9 +655,9 @@ var cObs=new IntersectionObserver(function(entries){
 cEls.forEach(function(el){cObs.observe(el);});
 }());
 </script>
+
+<!-- Add cookie banner script -->
 <script src="./cookie-banner.js"></script>
 
-</body>
-</html>
 </body>
 </html>
