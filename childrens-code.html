@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Security headers as meta tags -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; frame-ancestors 'none';">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UK Children’s Code Compliance &mdash; TaleBuzzer</title>
@@ -40,8 +47,10 @@ h1 em{font-style:italic;color:var(--amber2)}
 .legal-section p{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.75;margin-bottom:10px}
 .legal-section p:last-child{margin-bottom:0}
 .legal-section ul{list-style:none;display:flex;flex-direction:column;gap:8px;padding-left:0}
-.legal-section ul li{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.65;display:flex;align-items:flex-start;gap:8px}
-.legal-section ul li::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%;flex-shrink:0;margin-top:7px}
+.legal-section ul li{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.65;display:flex;align-items:flex-start;gap:10px}
+.legal-section ul li::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%;flex-shrink:0;margin-top:8px}
+.legal-section ul li strong{display:block;color:rgba(255,255,255,0.85);font-weight:500;font-size:13px;margin-bottom:2px}
+.legal-section ul li .li-body{flex:1;min-width:0}
 .legal-section a{color:var(--amber2);text-decoration:none}
 .legal-section a:hover{text-decoration:underline}
 .legal-highlight{background:var(--navy2);border:0.5px solid var(--wborder);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0}
@@ -84,21 +93,21 @@ h1 em{font-style:italic;color:var(--amber2)}
     <h2>How we meet the 15 standards</h2>
     <p>Our compliance position against each standard:</p>
     <ul>
-      <li><strong>Best interests of the child:</strong> Every feature decision is assessed against child wellbeing. Reading habit formation, not engagement maximisation, is our North Star metric.</li>
-      <li><strong>Data protection impact assessments:</strong> A DPIA has been completed for all processing activities involving child data.</li>
-      <li><strong>Age appropriate application:</strong> Content is calibrated to the child&rsquo;s age range, entered by the parent at profile creation.</li>
-      <li><strong>Transparency:</strong> Privacy information is written in plain language and available to both parents and children in age-appropriate format.</li>
-      <li><strong>Detrimental use of data:</strong> We do not use child data for advertising, profiling, or any purpose detrimental to their wellbeing.</li>
-      <li><strong>Policies and community standards:</strong> Our terms of use and acceptable use policy are clear and enforced.</li>
-      <li><strong>Default settings:</strong> All privacy settings default to the most protective option. Notifications default to off.</li>
-      <li><strong>Data minimisation:</strong> We collect only the data necessary to generate the child&rsquo;s story. No email addresses for children. No location data.</li>
-      <li><strong>Data sharing:</strong> Child data is never shared with third parties for their own purposes.</li>
-      <li><strong>Geolocation:</strong> We do not collect geolocation data at any point.</li>
-      <li><strong>Parental controls:</strong> Parents control all account settings. Children access only a PIN-gated reading environment.</li>
-      <li><strong>Profiling:</strong> We do not profile children for advertising or behavioural targeting.</li>
-      <li><strong>Nudge techniques:</strong> We do not use dark patterns. Upgrade prompts are clear, honest, and non-manipulative.</li>
-      <li><strong>Connected toys and devices:</strong> Not applicable &mdash; TaleBuzzer is a web application only.</li>
-      <li><strong>Online tools:</strong> Parents have clear tools to manage, review, and delete child data at any time.</li>
+      <li><strong>Best interests of the child:</strong><span class="li-body">Every feature decision is assessed against child wellbeing. Reading habit formation, not engagement maximisation, is our North Star metric.</span></li>
+      <li><strong>Data protection impact assessments:</strong><span class="li-body">A DPIA has been completed for all processing activities involving child data.</span></li>
+      <li><strong>Age appropriate application:</strong><span class="li-body">Content is calibrated to the child&rsquo;s age range, entered by the parent at profile creation.</span></li>
+      <li><strong>Transparency:</strong><span class="li-body">Privacy information is written in plain language and available to both parents and children in age-appropriate format.</span></li>
+      <li><strong>Detrimental use of data:</strong><span class="li-body">We do not use child data for advertising, profiling, or any purpose detrimental to their wellbeing.</span></li>
+      <li><strong>Policies and community standards:</strong><span class="li-body">Our terms of use and acceptable use policy are clear and enforced.</span></li>
+      <li><strong>Default settings:</strong><span class="li-body">All privacy settings default to the most protective option. Notifications default to off.</span></li>
+      <li><strong>Data minimisation:</strong><span class="li-body">We collect only the data necessary to generate the child&rsquo;s story. No email addresses for children. No location data.</span></li>
+      <li><strong>Data sharing:</strong><span class="li-body">Child data is never shared with third parties for their own purposes.</span></li>
+      <li><strong>Geolocation:</strong><span class="li-body">We do not collect geolocation data at any point.</span></li>
+      <li><strong>Parental controls:</strong><span class="li-body">Parents control all account settings. Children access only a PIN-gated reading environment.</span></li>
+      <li><strong>Profiling:</strong><span class="li-body">We do not profile children for advertising or behavioural targeting.</span></li>
+      <li><strong>Nudge techniques:</strong><span class="li-body">We do not use dark patterns. Upgrade prompts are clear, honest, and non-manipulative.</span></li>
+      <li><strong>Connected toys and devices:</strong><span class="li-body">Not applicable &mdash; TaleBuzzer is a web application only.</span></li>
+      <li><strong>Online tools:</strong><span class="li-body">Parents have clear tools to manage, review, and delete child data at any time.</span></li>
     </ul>
   </div>  <div class="legal-section">
     <h2>KCSIE compliance for schools</h2>
@@ -120,9 +129,6 @@ h1 em{font-style:italic;color:var(--amber2)}
     <a class="footer-link" href="./terms.html">Terms</a>
     <a class="footer-link" href="./gdpr.html">GDPR</a>
     <a class="footer-link" href="./childrens-code.html">Children&rsquo;s Code</a>
-    <a class="footer-link" href="mailto:hello&#64;talebuzzer.com">Contact</a>
-  </div>
-  <div class="footer-copy">&copy; 2025 TaleBuzzer Ltd</div>
 </footer>
 </body>
 </html>

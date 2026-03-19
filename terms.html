@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- Security headers as meta tags -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; frame-ancestors 'none';">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terms of Use &mdash; TaleBuzzer</title>
@@ -40,8 +47,10 @@ h1 em{font-style:italic;color:var(--amber2)}
 .legal-section p{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.75;margin-bottom:10px}
 .legal-section p:last-child{margin-bottom:0}
 .legal-section ul{list-style:none;display:flex;flex-direction:column;gap:8px;padding-left:0}
-.legal-section ul li{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.65;display:flex;align-items:flex-start;gap:8px}
-.legal-section ul li::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%;flex-shrink:0;margin-top:7px}
+.legal-section ul li{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.65;display:flex;align-items:flex-start;gap:10px}
+.legal-section ul li::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%;flex-shrink:0;margin-top:8px}
+.legal-section ul li strong{display:block;color:rgba(255,255,255,0.85);font-weight:500;font-size:13px;margin-bottom:2px}
+.legal-section ul li .li-body{flex:1;min-width:0}
 .legal-section a{color:var(--amber2);text-decoration:none}
 .legal-section a:hover{text-decoration:underline}
 .legal-highlight{background:var(--navy2);border:0.5px solid var(--wborder);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 20px;margin:16px 0}
@@ -119,9 +128,8 @@ h1 em{font-style:italic;color:var(--amber2)}
     <a class="footer-link" href="./terms.html">Terms</a>
     <a class="footer-link" href="./gdpr.html">GDPR</a>
     <a class="footer-link" href="./childrens-code.html">Children&rsquo;s Code</a>
-    <a class="footer-link" href="mailto:hello&#64;talebuzzer.com">Contact</a>
+    <a href="mailto:hello&#64;talebuzzer.com">hello&#64;talebuzzer.com</a>
   </div>
-  <div class="footer-copy">&copy; 2025 TaleBuzzer Ltd</div>
 </footer>
 </body>
 </html>
