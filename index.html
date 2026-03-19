@@ -275,13 +275,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
 </head>
 <body>
 
-<div class="cookie-banner" id="cookie-banner" role="region" aria-label="Cookie consent">
-  <div class="cookie-text">We use cookies to remember your waitlist sign-up. No tracking of children. <a href="./privacy.html">Privacy policy</a></div>
-  <div class="cookie-btns">
-    <button class="cookie-accept" data-cookie="accept">Accept</button>
-    <button class="cookie-decline" data-cookie="decline">Decline</button>
-  </div>
-</div>
 
 <nav class="nav" id="nav" aria-label="Main navigation">
   <a class="nav-logo" href="/" aria-label="TaleBuzzer home">
@@ -549,19 +542,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;overflow
 <script>
 (function(){
 'use strict';
-var cb=document.getElementById('cookie-banner');
-function dismissCookie(instant){
-  if(instant){cb.style.display='none';return;}
-  cb.classList.add('hidden');
-  setTimeout(function(){cb.style.display='none';},350);
-}
-if(localStorage.getItem('tb_cookie')){dismissCookie(true);}
-document.querySelectorAll('[data-cookie]').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    localStorage.setItem('tb_cookie','1');
-    dismissCookie(false);
-  });
-});
+
 var navEl=document.getElementById('nav');
 window.addEventListener('scroll',function(){
   navEl.style.background=window.scrollY>20?'rgba(13,20,32,0.97)':'rgba(13,20,32,0.9)';
@@ -683,5 +664,9 @@ var cObs=new IntersectionObserver(function(entries){
 cEls.forEach(function(el){cObs.observe(el);});
 }());
 </script>
+<script src="./cookie-banner.js"></script>
+
+</body>
+</html>
 </body>
 </html>
