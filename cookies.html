@@ -4,72 +4,229 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cookie Policy &mdash; TaleBuzzer</title>
-<meta name="description" content="How TaleBuzzer uses cookies.">
+<meta name="description" content="How TaleBuzzer uses cookies and how to manage your preferences.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#0d1420">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-ancestors 'none';">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-ancestors 'none';">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,500&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+
 <style>
+/* ── RESET ───────────────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+
+/* ── TOKENS ──────────────────────────────────────────────────── */
 :root{
-  --navy:#0d1420;--navy2:#141e2e;--navy3:#1c2a3e;
+  --navy:#0d1420;--navy2:#141e2e;--navy3:#1c2a3e;--navy4:#243040;
   --amber:#EF9F27;--amber2:#FAC775;--amber3:#FAEEDA;--amber-dk:#854F0B;
+  --green:#22c55e;--green-dk:#166534;--green-bg:#0d2218;
+  --red:#ef4444;--red-dk:#7f1d1d;--red-bg:#200d0d;
   --ink:#0d1420;--muted:rgba(13,20,32,0.5);--border:rgba(13,20,32,0.09);
   --wborder:rgba(255,255,255,0.08);--wmuted:rgba(255,255,255,0.45);
+  --w85:rgba(255,255,255,0.85);--w55:rgba(255,255,255,0.55);--w30:rgba(255,255,255,0.3);
+  --w15:rgba(255,255,255,0.15);--w08:rgba(255,255,255,0.08);
+  --trans:all 0.2s ease;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;min-height:100vh;display:flex;flex-direction:column}
-.nav{display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:rgba(13,20,32,0.97);border-bottom:0.5px solid var(--wborder);flex-shrink:0}
+
+/* ── BASE ────────────────────────────────────────────────────── */
+body{font-family:'DM Sans',sans-serif;background:var(--navy);color:#fff;min-height:100vh;display:flex;flex-direction:column;padding-bottom:0}
+a{color:var(--amber2);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px;background:rgba(13,20,32,0.97);border-bottom:0.5px solid var(--wborder);flex-shrink:0;position:sticky;top:0;z-index:50}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .nav-logo-img{height:36px;width:36px;border-radius:8px;background:#fff;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:2px}
 .nav-logo-img img{width:32px;height:32px;object-fit:contain;display:block}
 .nav-wordmark{font-family:'Fraunces',serif;font-size:17px;font-weight:500;color:#fff;letter-spacing:-0.4px}
 .nav-wordmark span{color:var(--amber2);font-style:italic}
-.nav-back{font-size:13px;color:var(--wmuted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s}
-.nav-back:hover{color:#fff}
-.main{flex:1;padding:72px 5% 88px;max-width:800px;margin:0 auto;width:100%}
-.legal-eyebrow{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--amber-dk);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.nav-back{font-size:13px;color:var(--wmuted);text-decoration:none;display:flex;align-items:center;gap:6px;transition:var(--trans)}
+.nav-back:hover{color:#fff;text-decoration:none}
+
+/* ── MAIN ────────────────────────────────────────────────────── */
+.main{flex:1;padding:72px 5% 120px;max-width:840px;margin:0 auto;width:100%}
+.legal-eyebrow{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:8px;margin-bottom:14px}
 .legal-eyebrow::before{content:'';display:block;width:18px;height:1.5px;background:var(--amber);border-radius:2px}
 h1{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,46px);font-weight:500;line-height:1.1;letter-spacing:-1px;color:#fff;margin-bottom:10px}
 h1 em{font-style:italic;color:var(--amber2)}
-.legal-meta{font-size:13px;color:rgba(255,255,255,0.3);margin-bottom:52px}
+.legal-meta{font-size:13px;color:var(--w30);margin-bottom:52px;line-height:1.6}
 .legal-body{display:flex;flex-direction:column;gap:36px}
-.legal-section h2{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:#fff;margin-bottom:12px;padding-bottom:10px;border-bottom:0.5px solid var(--wborder)}
+
+/* ── SECTIONS ────────────────────────────────────────────────── */
+.legal-section h2{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:#fff;margin-bottom:14px;padding-bottom:10px;border-bottom:0.5px solid var(--wborder)}
 .legal-section p{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.75;margin-bottom:10px}
 .legal-section p:last-child{margin-bottom:0}
 .legal-section ul{list-style:none;display:flex;flex-direction:column;gap:12px}
 .legal-section ul li{font-size:14px;font-weight:300;color:var(--wmuted);line-height:1.65;display:flex;align-items:flex-start;gap:10px}
 .legal-section ul li::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%;flex-shrink:0;margin-top:8px}
 .legal-section ul li .li-text{flex:1;min-width:0}
-.legal-section ul li strong{display:block;color:rgba(255,255,255,0.85);font-weight:500;font-size:13px;margin-bottom:3px}
-.legal-section a{color:var(--amber2);text-decoration:none}
+.legal-section ul li strong{display:block;color:var(--w85);font-weight:500;font-size:13px;margin-bottom:3px}
+.legal-section a{color:var(--amber2)}
 .legal-section a:hover{text-decoration:underline}
-.legal-highlight{background:var(--navy2);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:0}
+
+/* ── HIGHLIGHT BOX ───────────────────────────────────────────── */
+.legal-highlight{background:var(--navy2);border-left:3px solid var(--amber);border-radius:0 10px 10px 0;padding:16px 20px}
 .legal-highlight p{color:rgba(255,255,255,0.75) !important;margin-bottom:0 !important}
+
+/* ── COOKIE TABLE ────────────────────────────────────────────── */
+.cookie-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:16px}
+.cookie-table th{text-align:left;font-weight:500;color:var(--w55);font-size:11px;text-transform:uppercase;letter-spacing:0.7px;padding:10px 14px;border-bottom:0.5px solid var(--wborder);background:var(--navy2)}
+.cookie-table td{padding:12px 14px;border-bottom:0.5px solid var(--w08);color:var(--wmuted);vertical-align:top;line-height:1.6}
+.cookie-table td:first-child{font-family:'DM Mono',monospace;font-size:12px;color:var(--amber2);white-space:nowrap}
+.cookie-table tr:last-child td{border-bottom:none}
+.cookie-table tr:hover td{background:var(--w08)}
+
+/* ── CATEGORY BADGE ──────────────────────────────────────────── */
+.cat-badge{display:inline-block;font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px solid}
+.cat-essential{color:var(--green);border-color:rgba(34,197,94,0.3);background:rgba(34,197,94,0.07)}
+.cat-analytics{color:var(--amber2);border-color:rgba(250,199,117,0.3);background:rgba(250,199,117,0.07)}
+.cat-third{color:var(--w55);border-color:var(--w15);background:var(--w08)}
+
+/* ── PREFERENCE CENTRE (inline on page) ──────────────────────── */
+.pref-centre{background:var(--navy2);border:1px solid var(--wborder);border-radius:16px;overflow:hidden;margin-top:8px}
+.pref-centre-header{padding:20px 24px 16px;border-bottom:0.5px solid var(--wborder)}
+.pref-centre-header p{font-size:13px;color:var(--wmuted);margin-top:6px;margin-bottom:0}
+.pref-centre-header h3{font-family:'Fraunces',serif;font-size:18px;font-weight:500;color:#fff}
+.pref-row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:20px 24px;border-bottom:0.5px solid var(--w08)}
+.pref-row:last-of-type{border-bottom:none}
+.pref-info{flex:1;min-width:0}
+.pref-info strong{display:block;font-size:14px;font-weight:500;color:var(--w85);margin-bottom:4px}
+.pref-info p{font-size:13px;font-weight:300;color:var(--wmuted);line-height:1.6;margin-bottom:0}
+.pref-toggle-wrap{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:2px}
+.pref-toggle-label{font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--wmuted)}
+
+/* ── TOGGLE SWITCH ───────────────────────────────────────────── */
+.toggle{position:relative;display:inline-block;width:44px;height:24px}
+.toggle input{opacity:0;width:0;height:0;position:absolute}
+.toggle-track{position:absolute;inset:0;border-radius:99px;background:var(--navy4);border:1px solid var(--wborder);cursor:pointer;transition:background 0.25s,border-color 0.25s}
+.toggle input:checked+.toggle-track{background:var(--green);border-color:var(--green)}
+.toggle input:disabled+.toggle-track{opacity:0.6;cursor:not-allowed}
+.toggle-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);transition:transform 0.25s}
+.toggle input:checked~.toggle-thumb,.toggle input:checked+.toggle-track~.toggle-thumb{transform:translateX(20px)}
+/* Workaround: thumb inside label */
+.toggle-track .toggle-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,0.3);transition:transform 0.25s;pointer-events:none}
+
+/* ── PREF SAVE ROW ───────────────────────────────────────────── */
+.pref-save-row{padding:16px 24px;display:flex;align-items:center;justify-content:flex-end;gap:10px;background:var(--navy3);border-top:0.5px solid var(--wborder)}
+.pref-status{font-size:12px;color:var(--green);opacity:0;transition:opacity 0.3s;margin-right:auto}
+.pref-status.show{opacity:1}
+
+/* ── BUTTONS ─────────────────────────────────────────────────── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;border:none;border-radius:8px;padding:0 18px;height:38px;cursor:pointer;transition:var(--trans);text-decoration:none;white-space:nowrap}
+.btn:hover{text-decoration:none}
+.btn-amber{background:var(--amber);color:#fff}
+.btn-amber:hover{background:#d98e20;color:#fff}
+.btn-outline{background:transparent;color:var(--wmuted);border:1px solid var(--wborder)}
+.btn-outline:hover{border-color:var(--w30);color:#fff}
+.btn-ghost-red{background:transparent;color:var(--red);border:1px solid rgba(239,68,68,0.25)}
+.btn-ghost-red:hover{background:var(--red-bg);border-color:var(--red)}
+.btn-sm{font-size:12px;height:32px;padding:0 14px}
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
 .footer{background:var(--navy2);padding:28px 5%;border-top:0.5px solid var(--wborder);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;flex-shrink:0}
 .footer-brand{display:flex;align-items:center;gap:9px;text-decoration:none}
 .footer-brand-img{height:28px;width:28px;border-radius:6px;background:#fff;overflow:hidden;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:2px}
 .footer-brand-img img{width:24px;height:24px;object-fit:contain;display:block}
-.footer-wordmark{font-family:'Fraunces',serif;font-size:14px;font-weight:500;color:rgba(255,255,255,0.55)}
+.footer-wordmark{font-family:'Fraunces',serif;font-size:14px;font-weight:500;color:var(--w55)}
 .footer-wordmark span{color:var(--amber2);font-style:italic}
 .footer-links{display:flex;gap:20px;flex-wrap:wrap}
-.footer-link{font-size:12px;color:rgba(255,255,255,0.2);text-decoration:none;transition:color 0.2s}
-.footer-link:hover{color:rgba(255,255,255,0.5)}
-.footer-copy{font-size:12px;color:rgba(255,255,255,0.15)}
-@media(max-width:600px){.footer{flex-direction:column;align-items:flex-start}.main{padding:48px 5% 64px}}
+.footer-link{font-size:12px;color:var(--w30);text-decoration:none;transition:color 0.2s}
+.footer-link:hover{color:var(--w55)}
+.footer-link.active{color:var(--amber2)}
+.footer-copy{font-size:12px;color:var(--w15)}
+
+/* ── COOKIE BANNER ───────────────────────────────────────────── */
+#cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:9000;
+  background:var(--navy2);
+  border-top:1px solid var(--wborder);
+  padding:20px 5%;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  box-shadow:0 -8px 40px rgba(0,0,0,0.5);
+  transform:translateY(0);
+  transition:transform 0.4s cubic-bezier(0.4,0,0.2,1),opacity 0.4s;
+}
+#cookie-banner.hidden{transform:translateY(110%);opacity:0;pointer-events:none}
+.banner-text{flex:1;min-width:240px}
+.banner-title{font-family:'Fraunces',serif;font-size:16px;font-weight:500;color:#fff;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.banner-title svg{flex-shrink:0}
+.banner-body{font-size:13px;font-weight:300;color:var(--wmuted);line-height:1.65;max-width:540px}
+.banner-body a{color:var(--amber2)}
+.banner-body a:hover{text-decoration:underline}
+.banner-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:4px}
+
+/* ── MANAGE MODAL ────────────────────────────────────────────── */
+#pref-modal{
+  position:fixed;inset:0;z-index:9100;
+  display:flex;align-items:flex-end;justify-content:center;
+  background:rgba(0,0,0,0.65);
+  backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s;
+}
+#pref-modal.open{opacity:1;pointer-events:all}
+#pref-modal.open .modal-sheet{transform:translateY(0)}
+.modal-sheet{
+  background:var(--navy2);
+  border:1px solid var(--wborder);
+  border-radius:20px 20px 0 0;
+  width:100%;max-width:640px;
+  max-height:90vh;overflow-y:auto;
+  transform:translateY(40px);
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  padding-bottom:env(safe-area-inset-bottom,0);
+}
+.modal-handle{width:36px;height:4px;background:var(--w15);border-radius:99px;margin:14px auto 0}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px 16px;border-bottom:0.5px solid var(--wborder)}
+.modal-header h2{font-family:'Fraunces',serif;font-size:20px;font-weight:500;color:#fff}
+.modal-close{background:none;border:none;color:var(--wmuted);cursor:pointer;padding:4px;border-radius:6px;transition:color 0.2s;line-height:0}
+.modal-close:hover{color:#fff}
+.modal-body{padding:0}
+.modal-pref-row{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:20px 24px;border-bottom:0.5px solid var(--w08)}
+.modal-pref-row:last-of-type{border-bottom:none}
+.modal-pref-info strong{display:block;font-size:14px;font-weight:500;color:var(--w85);margin-bottom:4px}
+.modal-pref-info p{font-size:13px;font-weight:300;color:var(--wmuted);line-height:1.6;margin-bottom:0}
+.modal-pref-toggle{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px;padding-top:2px}
+.modal-pref-toggle span{font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--wmuted)}
+.modal-footer{display:flex;align-items:center;justify-content:flex-end;gap:10px;padding:16px 24px;background:var(--navy3);border-top:0.5px solid var(--wborder)}
+.modal-footer-status{font-size:12px;color:var(--green);opacity:0;transition:opacity 0.3s;margin-right:auto}
+.modal-footer-status.show{opacity:1}
+
+/* ── CONSENT STATUS PILL ─────────────────────────────────────── */
+.consent-pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:4px 12px;border-radius:99px;margin-top:10px}
+.consent-pill.accepted{background:var(--green-bg);color:var(--green);border:1px solid rgba(34,197,94,0.25)}
+.consent-pill.rejected{background:var(--red-bg);color:var(--red);border:1px solid rgba(239,68,68,0.25)}
+.consent-pill.pending{background:var(--w08);color:var(--wmuted);border:1px solid var(--wborder)}
+.consent-pill svg{flex-shrink:0}
+
+/* ── MEDIA ───────────────────────────────────────────────────── */
+@media(max-width:640px){
+  .footer{flex-direction:column;align-items:flex-start}
+  .main{padding:48px 5% 120px}
+  .banner-actions{width:100%}
+  .banner-actions .btn{flex:1;justify-content:center}
+  .cookie-table{display:block;overflow-x:auto}
+  .pref-row{flex-direction:column;gap:12px}
+  .pref-toggle-wrap{flex-direction:row;align-items:center}
+  .modal-pref-row{flex-direction:column;gap:12px}
+  .modal-pref-toggle{flex-direction:row}
+}
 </style>
 </head>
 <body>
 
+<!-- ── NAV ─────────────────────────────────────────────────────── -->
 <nav class="nav" aria-label="Main navigation">
   <a class="nav-logo" href="/" aria-label="TaleBuzzer home">
-    <div class="nav-logo-img"><img src="./assets/logo.jpeg" alt="TaleBuzzer" width="32" height="32"></div>
+    <div class="nav-logo-img">
+      <img src="./Talebuzzer_logo_26_08_20251.jpeg" alt="TaleBuzzer logo" width="32" height="32">
+    </div>
     <div class="nav-wordmark" aria-hidden="true">Tale<span>Buzzer</span></div>
   </a>
   <a class="nav-back" href="/">
@@ -78,58 +235,571 @@ h1 em{font-style:italic;color:var(--amber2)}
   </a>
 </nav>
 
+<!-- ── MAIN ────────────────────────────────────────────────────── -->
 <main class="main">
-  <div class="legal-eyebrow">Legal</div>
+  <div class="legal-eyebrow" aria-label="Section: Legal">Legal</div>
   <h1>Cookie <em>policy</em></h1>
-  <p class="legal-meta">Last updated: March 2026 &middot; TaleBuzzer Ltd &middot; Registered in England &amp; Wales</p>
+  <p class="legal-meta">
+    Last updated: March 2026 &middot; TaleBuzzer Ltd &middot; Registered in England &amp; Wales<br>
+    Governed by the UK Privacy and Electronic Communications Regulations 2003 (PECR) and UK GDPR
+  </p>
+
   <div class="legal-body">
-  <div class="legal-section">
-    <div class="legal-highlight"><p>TaleBuzzer uses only essential cookies required to run the service. We do not use advertising cookies, tracking pixels, or cross-site tracking of any kind.</p></div>
-  </div>
-  <div class="legal-section">
-    <h2>1. What are cookies</h2>
-    <p>Cookies are small text files stored in your browser when you visit a website. TaleBuzzer uses a minimal set of cookies to keep the service working correctly.</p>
-  </div>
-  <div class="legal-section">
-    <h2>2. Cookies we use</h2>
-    <p>We use the following cookies:</p>
-    <ul>
-      <li><div class="li-text"><strong>tb_cookie</strong> &mdash; Remembers your cookie consent choice. Stored in localStorage. Expires after 1 year.</div></li>
-      <li><div class="li-text"><strong>Session cookie</strong> &mdash; Keeps you logged into your parent account. Expires after 24 hours of inactivity. HttpOnly and Secure.</div></li>
-      <li><div class="li-text"><strong>Google Fonts</strong> &mdash; The font provider may set a performance cookie. No personal data is shared.</div></li>
-    </ul>
-  </div>
-  <div class="legal-section">
-    <h2>3. What we do not use</h2>
-    <p>We do not use Google Analytics, Facebook Pixel, or any advertising or tracking technology. We do not track children across websites.</p>
-  </div>
-  <div class="legal-section">
-    <h2>4. Your choices</h2>
-    <p>You can manage or delete cookies through your browser settings at any time. Deleting session cookies will log you out of your account.</p>
-  </div>
-  <div class="legal-section">
-    <h2>5. Contact</h2>
-    <p>Questions: <a href="mailto:privacy&#64;talebuzzer.com">privacy&#64;talebuzzer.com</a></p>
-  </div>
-  </div>
+
+    <!-- OVERVIEW -->
+    <div class="legal-section">
+      <div class="legal-highlight">
+        <p>TaleBuzzer is designed for children. We operate a strict minimal-cookie approach. We do not use advertising cookies, tracking pixels, or cross-site profiling of any kind. Children's data is never used for commercial profiling.</p>
+      </div>
+    </div>
+
+    <!-- 1. WHAT ARE COOKIES -->
+    <div class="legal-section">
+      <h2>1. What are cookies</h2>
+      <p>Cookies are small text files that a website stores on your device when you visit. They allow the site to remember information across pages or between visits. Some cookies are necessary for the service to function. Others are optional and require your consent under UK PECR before they are set.</p>
+      <p>We also use a browser storage mechanism called <code style="font-family:'DM Mono',monospace;font-size:12px;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">localStorage</code> to save your cookie consent choice. This is functionally similar to a cookie and is treated the same way under PECR.</p>
+    </div>
+
+    <!-- 2. LAWFUL BASIS -->
+    <div class="legal-section">
+      <h2>2. Our lawful basis for cookies</h2>
+      <p>Under UK PECR and UK GDPR we rely on two lawful bases for placing cookies:</p>
+      <ul>
+        <li>
+          <div class="li-text">
+            <strong>Strictly necessary &mdash; no consent required</strong>
+            These cookies are set only where they are essential to deliver a service you have specifically requested. Removing them would prevent the site from working. We do not seek consent for these under Regulation 6(4) of PECR.
+          </div>
+        </li>
+        <li>
+          <div class="li-text">
+            <strong>Consent &mdash; opt-in required</strong>
+            Any non-essential cookie (analytics, performance, marketing) requires your explicit, informed, and freely given consent before it is placed. You can withdraw consent at any time with the same ease as giving it.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. COOKIES WE USE -->
+    <div class="legal-section">
+      <h2>3. Cookies and storage we use</h2>
+      <p>The table below lists every cookie and storage item currently active on TaleBuzzer.</p>
+
+      <table class="cookie-table" aria-label="Cookie details">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Purpose</th>
+            <th>Expires</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>tb_session</td>
+            <td>HTTP Cookie</td>
+            <td>Maintains your authenticated parent account session. Marked HttpOnly and Secure. Not accessible by JavaScript.</td>
+            <td>24 hrs inactivity</td>
+            <td><span class="cat-badge cat-essential">Essential</span></td>
+          </tr>
+          <tr>
+            <td>tb_child_pin</td>
+            <td>HTTP Cookie</td>
+            <td>Stores an encrypted reference to the active child profile so the child-safe reading mode persists across pages.</td>
+            <td>Session</td>
+            <td><span class="cat-badge cat-essential">Essential</span></td>
+          </tr>
+          <tr>
+            <td>tb_cookie_consent</td>
+            <td>localStorage</td>
+            <td>Records your cookie consent decision (accepted or rejected) and the date it was given, so we do not prompt you again unnecessarily.</td>
+            <td>12 months</td>
+            <td><span class="cat-badge cat-essential">Essential</span></td>
+          </tr>
+          <tr>
+            <td>tb_csrf</td>
+            <td>HTTP Cookie</td>
+            <td>Cross-site request forgery protection token. Required for form submissions and account actions.</td>
+            <td>Session</td>
+            <td><span class="cat-badge cat-essential">Essential</span></td>
+          </tr>
+          <tr>
+            <td>__gads / _ga</td>
+            <td>HTTP Cookie</td>
+            <td>Google Analytics &mdash; not currently deployed. Listed here for transparency. Will only be set if analytics consent is granted.</td>
+            <td>N/A</td>
+            <td><span class="cat-badge cat-analytics">Analytics</span></td>
+          </tr>
+          <tr>
+            <td>Google Fonts</td>
+            <td>Third-party</td>
+            <td>The Google Fonts CDN may set a short-lived performance cookie. No personal data is transferred for advertising purposes. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google's privacy policy</a>.</td>
+            <td>Session</td>
+            <td><span class="cat-badge cat-third">Third Party</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. WHAT WE DO NOT USE -->
+    <div class="legal-section">
+      <h2>4. What we do not use</h2>
+      <ul>
+        <li><div class="li-text">Facebook Pixel or any Meta tracking technology</div></li>
+        <li><div class="li-text">Google Ads or any advertising network cookies</div></li>
+        <li><div class="li-text">Hotjar, FullStory, or any session recording tools</div></li>
+        <li><div class="li-text">TikTok Pixel or any social commerce tracking</div></li>
+        <li><div class="li-text">Cross-site tracking of children or child profiles</div></li>
+        <li><div class="li-text">Fingerprinting or device identification techniques</div></li>
+      </ul>
+    </div>
+
+    <!-- 5. THIRD PARTIES -->
+    <div class="legal-section">
+      <h2>5. Third-party services</h2>
+      <p>TaleBuzzer uses a small number of third-party services that may set their own cookies or storage items. These are listed below. We have Data Processing Agreements in place with each provider where required by UK GDPR.</p>
+      <ul>
+        <li>
+          <div class="li-text">
+            <strong>Google Fonts (Alphabet Inc.)</strong>
+            Used to load the typefaces displayed on this site. Google may log your IP address for abuse prevention. No advertising data is processed. <a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener noreferrer">Google Fonts privacy FAQ</a>.
+          </div>
+        </li>
+        <li>
+          <div class="li-text">
+            <strong>Formspree (or equivalent email handler)</strong>
+            Used to process contact form submissions. Formspree receives your submitted data only. No tracking cookies are set by this integration.
+          </div>
+        </li>
+        <li>
+          <div class="li-text">
+            <strong>Payment processor (Stripe &mdash; planned)</strong>
+            If you subscribe to a paid plan, Stripe will set its own cookies for fraud prevention and payment processing. Stripe's cookies are subject to <a href="https://stripe.com/gb/privacy" target="_blank" rel="noopener noreferrer">Stripe's privacy policy</a>. We will update this policy before payment functionality launches.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 6. YOUR CHOICES -->
+    <div class="legal-section">
+      <h2>6. Your choices and how to manage cookies</h2>
+      <p>You have the following options to control cookies on TaleBuzzer.</p>
+      <ul>
+        <li>
+          <div class="li-text">
+            <strong>Accept or reject via the banner</strong>
+            When you first visit TaleBuzzer you will see a consent banner. You can accept all optional cookies or reject them. You can change this decision at any time using the preference centre below.
+          </div>
+        </li>
+        <li>
+          <div class="li-text">
+            <strong>Manage preferences on this page</strong>
+            Use the preference centre directly below to review and update your choices without leaving this page.
+          </div>
+        </li>
+        <li>
+          <div class="li-text">
+            <strong>Browser settings</strong>
+            All modern browsers allow you to view, block, and delete cookies. Deleting the <code style="font-family:'DM Mono',monospace;font-size:12px;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">tb_session</code> cookie will log you out of your account. See your browser's help pages for instructions.
+          </div>
+        </li>
+        <li>
+          <div class="li-text">
+            <strong>Opt out of Google Fonts</strong>
+            To prevent Google Fonts from loading, you can block <code style="font-family:'DM Mono',monospace;font-size:12px;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">fonts.googleapis.com</code> in your browser or use a privacy extension such as uBlock Origin.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- 7. INLINE PREFERENCE CENTRE -->
+    <div class="legal-section">
+      <h2>7. Manage your cookie preferences</h2>
+      <p>Your current consent status is shown below. You can update your preferences at any time.</p>
+
+      <div id="inline-consent-status" style="margin-bottom:16px">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="pref-centre" role="region" aria-label="Cookie preference centre">
+        <div class="pref-centre-header">
+          <h3>Cookie preference centre</h3>
+          <p>Toggle the categories below to control which cookies TaleBuzzer may set on your device. Strictly necessary cookies cannot be disabled as they are required for the service to function.</p>
+        </div>
+
+        <!-- Essential -->
+        <div class="pref-row">
+          <div class="pref-info">
+            <strong>Strictly necessary cookies</strong>
+            <p>Required for login sessions, child PIN access, CSRF protection, and consent memory. These cookies do not collect personal data for any purpose other than service operation. They cannot be disabled.</p>
+          </div>
+          <div class="pref-toggle-wrap">
+            <label class="toggle" aria-label="Strictly necessary cookies — always on">
+              <input type="checkbox" id="pref-essential" checked disabled>
+              <div class="toggle-track"><div class="toggle-thumb"></div></div>
+            </label>
+            <span class="pref-toggle-label" style="color:var(--green)">Always on</span>
+          </div>
+        </div>
+
+        <!-- Analytics -->
+        <div class="pref-row">
+          <div class="pref-info">
+            <strong>Analytics cookies</strong>
+            <p>We do not currently use analytics cookies. If we introduce them in the future (for example, to understand which story types parents find most useful), we will update this policy and seek fresh consent before placing any such cookies.</p>
+          </div>
+          <div class="pref-toggle-wrap">
+            <label class="toggle" aria-label="Toggle analytics cookies">
+              <input type="checkbox" id="pref-analytics">
+              <div class="toggle-track"><div class="toggle-thumb"></div></div>
+            </label>
+            <span class="pref-toggle-label" id="pref-analytics-label">Off</span>
+          </div>
+        </div>
+
+        <!-- Marketing -->
+        <div class="pref-row">
+          <div class="pref-info">
+            <strong>Marketing cookies</strong>
+            <p>TaleBuzzer does not use marketing or advertising cookies. We do not work with advertising networks and we do not profile users for commercial targeting. This category is listed for transparency and compliance purposes only.</p>
+          </div>
+          <div class="pref-toggle-wrap">
+            <label class="toggle" aria-label="Toggle marketing cookies — not applicable">
+              <input type="checkbox" id="pref-marketing" disabled>
+              <div class="toggle-track"><div class="toggle-thumb"></div></div>
+            </label>
+            <span class="pref-toggle-label">Not used</span>
+          </div>
+        </div>
+
+        <div class="pref-save-row">
+          <span class="pref-status" id="inline-save-status" aria-live="polite">Preferences saved.</span>
+          <button class="btn btn-ghost-red btn-sm" onclick="rejectAllInline()">Reject all</button>
+          <button class="btn btn-amber btn-sm" onclick="saveInlinePrefs()">Save preferences</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. DATA RETENTION -->
+    <div class="legal-section">
+      <h2>8. How long we keep consent records</h2>
+      <p>Your consent choice is stored in <code style="font-family:'DM Mono',monospace;font-size:12px;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">localStorage</code> under the key <code style="font-family:'DM Mono',monospace;font-size:12px;background:rgba(255,255,255,0.06);padding:2px 6px;border-radius:4px">tb_cookie_consent</code> for 12 months. After 12 months we will ask for your consent again. You can clear this at any time by using the "Reject all" button above or by clearing your browser storage.</p>
+    </div>
+
+    <!-- 9. CHILDREN -->
+    <div class="legal-section">
+      <h2>9. Cookies and children</h2>
+      <p>TaleBuzzer accounts are created by parents or guardians on behalf of children. Children access stories through a PIN-protected child mode and do not interact with cookie consent flows. Cookie consent is collected only from the parent or guardian who holds the account.</p>
+      <p>We do not use cookies to profile children for commercial purposes. This approach is consistent with the ICO Children's Code (Age Appropriate Design Code) and our obligations under UK GDPR with respect to children's data.</p>
+    </div>
+
+    <!-- 10. CHANGES -->
+    <div class="legal-section">
+      <h2>10. Changes to this policy</h2>
+      <p>We review this Cookie Policy whenever we introduce a new technology, update our third-party providers, or receive guidance from the ICO. Material changes that affect your consent will trigger a fresh consent request. The "Last updated" date at the top of this page will always reflect the most recent revision.</p>
+    </div>
+
+    <!-- 11. CONTACT -->
+    <div class="legal-section">
+      <h2>11. Contact and complaints</h2>
+      <p>For questions about how we use cookies, contact our privacy team: <a href="mailto:privacy@talebuzzer.com">privacy@talebuzzer.com</a>.</p>
+      <p>If you believe we have breached PECR or UK GDPR, you have the right to lodge a complaint with the Information Commissioner's Office (ICO): <a href="https://ico.org.uk/make-a-complaint" target="_blank" rel="noopener noreferrer">ico.org.uk/make-a-complaint</a> or call 0303 123 1113.</p>
+    </div>
+
+  </div><!-- /legal-body -->
 </main>
+
+<!-- ── FOOTER ───────────────────────────────────────────────────── -->
 <footer class="footer" aria-label="Site footer">
   <a class="footer-brand" href="/" aria-label="TaleBuzzer home">
-    <div class="footer-brand-img"><img src="./assets/logo.jpeg" alt="TaleBuzzer" width="24" height="24"></div>
+    <div class="footer-brand-img">
+      <img src="./Talebuzzer_logo_26_08_20251.jpeg" alt="TaleBuzzer" width="24" height="24">
+    </div>
     <div class="footer-wordmark">Tale<span>Buzzer</span></div>
   </a>
   <div class="footer-links">
     <a class="footer-link" href="./privacy.html">Privacy</a>
-    <a class="footer-link" href="./cookies.html">Cookies</a>
+    <a class="footer-link active" href="./cookies.html" aria-current="page">Cookies</a>
     <a class="footer-link" href="./terms.html">Terms</a>
     <a class="footer-link" href="./gdpr.html">GDPR</a>
     <a class="footer-link" href="./childrens-code.html">Children's Code</a>
-    <a class="footer-link" href="mailto:hello&#64;talebuzzer.com">Contact</a>
+    <a class="footer-link" href="mailto:hello@talebuzzer.com">Contact</a>
   </div>
   <div class="footer-copy">&copy; 2026 TaleBuzzer Ltd</div>
 </footer>
 
+<!-- ── COOKIE CONSENT BANNER ─────────────────────────────────────── -->
+<div id="cookie-banner" role="dialog" aria-modal="false" aria-label="Cookie consent" aria-live="polite">
+  <div class="banner-text">
+    <div class="banner-title">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <circle cx="9" cy="9" r="8" stroke="#EF9F27" stroke-width="1.5"/>
+        <circle cx="6.5" cy="7" r="1" fill="#EF9F27"/>
+        <circle cx="11.5" cy="6" r="1" fill="#EF9F27"/>
+        <circle cx="9" cy="11.5" r="1" fill="#EF9F27"/>
+        <circle cx="12.5" cy="10.5" r="0.75" fill="#EF9F27"/>
+        <circle cx="6" cy="11" r="0.75" fill="#EF9F27"/>
+      </svg>
+      We use cookies
+    </div>
+    <p class="banner-body">
+      TaleBuzzer uses strictly necessary cookies to keep your session active and to remember your preferences. We do not use advertising or tracking cookies. Read our <a href="./cookies.html">Cookie Policy</a> for full details.
+    </p>
+  </div>
+  <div class="banner-actions">
+    <button class="btn btn-outline" onclick="openPrefModal()" aria-haspopup="dialog">Manage preferences</button>
+    <button class="btn btn-ghost-red" onclick="rejectAll()">Reject all</button>
+    <button class="btn btn-amber" onclick="acceptAll()">Accept all</button>
+  </div>
+</div>
 
-<script src="./cookie-banner.js"></script>
+<!-- ── PREFERENCE MODAL ──────────────────────────────────────────── -->
+<div id="pref-modal" role="dialog" aria-modal="true" aria-label="Cookie preference centre">
+  <div class="modal-sheet">
+    <div class="modal-handle" aria-hidden="true"></div>
+    <div class="modal-header">
+      <h2>Cookie preferences</h2>
+      <button class="modal-close" onclick="closePrefModal()" aria-label="Close preference centre">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 5l10 10M15 5L5 15"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+
+      <!-- Essential -->
+      <div class="modal-pref-row">
+        <div class="modal-pref-info">
+          <strong>Strictly necessary cookies</strong>
+          <p>Required for login sessions, child PIN access, CSRF protection, and consent memory. Cannot be disabled.</p>
+        </div>
+        <div class="modal-pref-toggle">
+          <label class="toggle" aria-label="Strictly necessary — always on">
+            <input type="checkbox" id="modal-essential" checked disabled>
+            <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          </label>
+          <span style="font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--green)">Always on</span>
+        </div>
+      </div>
+
+      <!-- Analytics -->
+      <div class="modal-pref-row">
+        <div class="modal-pref-info">
+          <strong>Analytics cookies</strong>
+          <p>Not currently active. If introduced, these will measure how the service is used in aggregate. No data linked to child profiles.</p>
+        </div>
+        <div class="modal-pref-toggle">
+          <label class="toggle" aria-label="Toggle analytics cookies">
+            <input type="checkbox" id="modal-analytics">
+            <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          </label>
+          <span id="modal-analytics-label" style="font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--wmuted)">Off</span>
+        </div>
+      </div>
+
+      <!-- Marketing -->
+      <div class="modal-pref-row">
+        <div class="modal-pref-info">
+          <strong>Marketing cookies</strong>
+          <p>Not used by TaleBuzzer. We do not use advertising networks or commercial tracking of any kind.</p>
+        </div>
+        <div class="modal-pref-toggle">
+          <label class="toggle" aria-label="Marketing cookies — not used">
+            <input type="checkbox" id="modal-marketing" disabled>
+            <div class="toggle-track"><div class="toggle-thumb"></div></div>
+          </label>
+          <span style="font-size:10px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;color:var(--wmuted)">Not used</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <span class="modal-footer-status" id="modal-save-status" aria-live="polite">Preferences saved.</span>
+      <button class="btn btn-ghost-red btn-sm" onclick="rejectAll()">Reject all</button>
+      <button class="btn btn-outline btn-sm" onclick="acceptAll()">Accept all</button>
+      <button class="btn btn-amber btn-sm" onclick="saveModalPrefs()">Save my choices</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────────── -->
+<script>
+/* ── Storage key ── */
+const CONSENT_KEY = 'tb_cookie_consent';
+
+/* ── Read stored consent ── */
+function getConsent() {
+  try {
+    const raw = localStorage.getItem(CONSENT_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
+/* ── Write consent ── */
+function setConsent(analytics, decision) {
+  const payload = {
+    decision,            // 'accepted' | 'rejected' | 'custom'
+    analytics: !!analytics,
+    marketing: false,
+    date: new Date().toISOString(),
+    version: '1.0'
+  };
+  try { localStorage.setItem(CONSENT_KEY, JSON.stringify(payload)); } catch {}
+  return payload;
+}
+
+/* ── Apply consent (load analytics scripts, etc.) ── */
+function applyConsent(consent) {
+  // Analytics is not yet deployed — placeholder for when it is
+  if (consent && consent.analytics) {
+    // window.ga would be initialised here
+  }
+}
+
+/* ── Accept all ── */
+function acceptAll() {
+  const c = setConsent(true, 'accepted');
+  applyConsent(c);
+  hideBanner();
+  closePrefModal();
+  syncAllToggles(c);
+  renderConsentStatus(c);
+}
+
+/* ── Reject all ── */
+function rejectAll() {
+  const c = setConsent(false, 'rejected');
+  applyConsent(c);
+  hideBanner();
+  closePrefModal();
+  syncAllToggles(c);
+  renderConsentStatus(c);
+}
+
+/* ── Save modal prefs ── */
+function saveModalPrefs() {
+  const analytics = document.getElementById('modal-analytics').checked;
+  const c = setConsent(analytics, 'custom');
+  applyConsent(c);
+  hideBanner();
+  closePrefModal();
+  syncAllToggles(c);
+  renderConsentStatus(c);
+  flashStatus('modal-save-status');
+}
+
+/* ── Save inline prefs ── */
+function saveInlinePrefs() {
+  const analytics = document.getElementById('pref-analytics').checked;
+  const c = setConsent(analytics, 'custom');
+  applyConsent(c);
+  hideBanner();
+  syncAllToggles(c);
+  renderConsentStatus(c);
+  flashStatus('inline-save-status');
+}
+
+/* ── Reject all inline ── */
+function rejectAllInline() {
+  const c = setConsent(false, 'rejected');
+  applyConsent(c);
+  hideBanner();
+  syncAllToggles(c);
+  renderConsentStatus(c);
+  flashStatus('inline-save-status');
+}
+
+/* ── Sync toggle state across all controls ── */
+function syncAllToggles(c) {
+  const analytics = c ? c.analytics : false;
+  ['pref-analytics','modal-analytics'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = analytics;
+  });
+  updateToggleLabels();
+}
+
+/* ── Update "On/Off" labels ── */
+function updateToggleLabels() {
+  const al = document.getElementById('pref-analytics');
+  const alLabel = document.getElementById('pref-analytics-label');
+  const mal = document.getElementById('modal-analytics');
+  const malLabel = document.getElementById('modal-analytics-label');
+  if (al && alLabel) alLabel.textContent = al.checked ? 'On' : 'Off';
+  if (mal && malLabel) malLabel.textContent = mal.checked ? 'On' : 'Off';
+}
+
+/* ── Flash save status message ── */
+function flashStatus(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+/* ── Show / hide banner ── */
+function hideBanner() {
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+function showBanner() {
+  document.getElementById('cookie-banner').classList.remove('hidden');
+}
+
+/* ── Modal controls ── */
+function openPrefModal() {
+  const modal = document.getElementById('pref-modal');
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.modal-sheet').focus?.();
+}
+function closePrefModal() {
+  const modal = document.getElementById('pref-modal');
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+/* ── Close modal on backdrop click ── */
+document.getElementById('pref-modal').addEventListener('click', function(e) {
+  if (e.target === this) closePrefModal();
+});
+
+/* ── Render consent status pill on page ── */
+function renderConsentStatus(c) {
+  const el = document.getElementById('inline-consent-status');
+  if (!el) return;
+  if (!c) {
+    el.innerHTML = '<span class="consent-pill pending"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M6 4v2.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="6" cy="8.5" r="0.5" fill="currentColor"/></svg>No preference saved — please make a choice below.</span>';
+  } else if (c.decision === 'rejected') {
+    el.innerHTML = '<span class="consent-pill rejected"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M4 4l4 4M8 4l-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>You have rejected optional cookies. Only strictly necessary cookies are active. Last set: ' + new Date(c.date).toLocaleDateString('en-GB') + '</span>';
+  } else {
+    el.innerHTML = '<span class="consent-pill accepted"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.2"/><path d="M3.5 6l2 2 3-3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Consent recorded (' + c.decision + '). Analytics: ' + (c.analytics ? 'on' : 'off') + '. Last set: ' + new Date(c.date).toLocaleDateString('en-GB') + '</span>';
+  }
+}
+
+/* ── Toggle change listeners ── */
+document.getElementById('pref-analytics').addEventListener('change', updateToggleLabels);
+document.getElementById('modal-analytics').addEventListener('change', updateToggleLabels);
+
+/* ── Escape key closes modal ── */
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePrefModal();
+});
+
+/* ── Init ── */
+(function init() {
+  const c = getConsent();
+  if (c) {
+    hideBanner();
+    applyConsent(c);
+    syncAllToggles(c);
+  } else {
+    showBanner();
+  }
+  renderConsentStatus(c);
+  updateToggleLabels();
+})();
+</script>
+
 </body>
 </html>
